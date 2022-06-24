@@ -58,6 +58,6 @@
     
     </tbody>
   </table>
-  {{$posts->links()}}
+  <!--{{$post->links()}}-->
 </div>
 @endsection
