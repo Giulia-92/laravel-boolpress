@@ -31,20 +31,24 @@
       <div class="form-group">
         <h5>Tags</h5>
         @foreach ($tags as $tag)
-        <div class="form-check-inline">
+          <div class="form-check form-check-inline">
           <input type="checkbox" class="form-check-input" {{in_array($tag->id,old("tags",[])) ? 'checked' : ''}} id="{{$tags->slug}}"  name="tags[]" value="{{$tag->id}}">
             <label class="form-check-label" for="{{$tags->slug}}">{{$tag->name}}</label>
-          @endforeach
-      <label for="category" class="form-label">Category</label>
-      <select name="category_id" id="category" class="form-control">
-        <option value="">Select category</option>
-        @foreach ($categories as $category)
-        <option value="{{$category->id}}">{{$category->name}}
-        </option>
-      </div>
         @endforeach
       </select>
       </div>
+    </div>
+    <div class="form-group">
+      <img id="uploadPreview" width="150" src="https://via.placeholder.com/300x200">
+      <label for="image">Aggiungi Immagine</label>
+      <input type="file" name="image" id="image">
+      @error('image')
+          <div class="btn btn-danger">
+            {{$message}}
+
+          </div>
+      @enderror
+
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

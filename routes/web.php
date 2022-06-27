@@ -28,9 +28,11 @@ Route::middleware('auth')
 ->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('/posts','PostController');
+    Route::resource('/categories','CategoryController');;
+    Route::resource('/tags','TagsController');
 });
-Route::resource('/categories','CategoryController');;
-Route::resource('/tags','TagsController');;
+
+
 Route::get("{any?}",function() {
     return view("guest.home");
 })->where('any',".*");

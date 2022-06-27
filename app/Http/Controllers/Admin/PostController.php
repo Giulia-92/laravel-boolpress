@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
@@ -16,6 +16,7 @@ class PostController extends Controller
         "content" => "required",
         "published" => "sometimes|accepted",
         "category_id" => "nullable|exists:categories,id",
+        "image" => "nullable|image|mimes:jpeg,png,svg|max:2000",
         "tags"=>"nullable|exists:tags,id"
     ];
 
@@ -26,7 +27,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(10);
         return view('admin.posts.index',compact('posts'));
     }
 
@@ -69,13 +70,19 @@ class PostController extends Controller
             //$newPost->slug = $slug;
             $newPost->slug = $this->getSlug($newPost->title);
             $newPost->save();
-            if(isset($data['tags'])){
-                $newPost->tags()->sync($data['tags']);
-            }
+            //if(isset($data['tags'])){
+                //$newPost->tags()->sync($data['tags']);
+            //}
+        
 
 
-            return redirect()->route('admin.posts.show',$newPost->id);
+
+        if(isset($data['image'])){
+            $path_image = Storage::put("uploads",$data['image']);
+            $newPost->image = $path_image;
         }
+        return redirect()->route('admin.posts.show',$newPost->id);
+    }
     
 
     /**
@@ -102,7 +109,7 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $categories = Category::all();
-        return view( 'admin.posts.edit', compact('post','categories'));
+        return view( 'admin.posts.edit', compact('post','categories','tags'));
     }
 
     /**
