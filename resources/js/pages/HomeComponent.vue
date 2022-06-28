@@ -1,13 +1,14 @@
 <template>
-<div>
-    <h1>sono il footer</h1>
-    </div>
+    <section>
+<h1>home</h1>
+    </section>
 </template>
-<script>
+
+<script >
 
 
 export default {
-    name:'FooterComponent'
+    name:'HomeComponent'
 }
 </script>
 <style lang="scss">
