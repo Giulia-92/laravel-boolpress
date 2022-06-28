@@ -1960,22 +1960,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'HeaderComponent',
+  name: "HeaderComponent",
   data: function data() {
     return {
       menuItem: [{
-        label: 'Home',
-        routeName: 'home'
+        label: "Home",
+        routeName: "home"
       }, {
-        label: 'contact',
-        routeName: 'contact'
+        label: "contact",
+        routeName: "contact"
       }, {
-        label: 'posts',
-        routeName: 'posts'
+        label: "posts",
+        routeName: "posts"
       }, {
-        label: 'about',
-        routeName: 'about'
+        label: "about",
+        routeName: "about"
       }]
     };
   }
@@ -38452,8 +38462,108 @@ render._withStripped = true
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function () {}
-var staticRenderFns = []
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("header", [
+    _c("nav", { staticClass: "navbar navbar-dark bg-primary" }, [
+      _c(
+        "div",
+        { staticClass: "container-fluid" },
+        [
+          _c("a", { staticClass: "navbar-brand", attrs: { href: "" } }, [
+            _vm._v("Boolpress"),
+          ]),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "navbar-brand",
+              attrs: { to: { name: _vm.menuItem[0].routeName } },
+            },
+            [_vm._v(_vm._s(_vm.menuItem[0].label))]
+          ),
+          _vm._v(" "),
+          _vm._m(0),
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "collapse navbar-collapse", attrs: { id: "navbarNav" } },
+        [
+          _c(
+            "div",
+            { staticClass: "collapse navbar-collapse", attrs: { id: "" } },
+            [
+              _c(
+                "div",
+                { staticClass: "navbar-nav" },
+                _vm._l(_vm.menuItem, function (item, index) {
+                  return _c(
+                    "div",
+                    { key: index },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "nav-link",
+                          attrs: { to: { name: item.routeName } },
+                        },
+                        [_vm._v(_vm._s(item.label))]
+                      ),
+                    ],
+                    1
+                  )
+                }),
+                0
+              ),
+            ]
+          ),
+        ]
+      ),
+    ]),
+    _vm._v(" "),
+    _vm._m(1),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "navbar-toggler",
+        attrs: {
+          type: "button",
+          "data-bs-toggle": "collapse",
+          "data-bs-target": "#navbarNav",
+          "aria-controls": "navbarNav",
+          "aria-expanded": "false",
+          "aria-label": "Toggle navigation",
+        },
+      },
+      [_c("span", { staticClass: "navbar-toggler-icon" })]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("ul", [
+      _c("li", [_c("a", { attrs: { href: "/" } }, [_vm._v("home")])]),
+      _vm._v(" "),
+      _c("li", [
+        _c("a", { attrs: { href: "/admin" } }, [_vm._v("area riservata")]),
+      ]),
+    ])
+  },
+]
+render._withStripped = true
 
 
 
@@ -38704,11 +38814,11 @@ var render = function () {
   return _c(
     "div",
     [
-      _c("header-compoent"),
+      _c("header-component"),
       _vm._v(" "),
-      _c("main-compoent"),
+      _c("main-component"),
       _vm._v(" "),
-      _c("footer-compoent"),
+      _c("footer-component"),
     ],
     1
   )
