@@ -5,10 +5,10 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 import  HomeComponent from './pages/HomeComponent';
-import  HomeComponent from './pages/AboutComponent';
-import  HomeComponent from './pages/PostsComponent';
-import  HomeComponent from './pages/ContactComponent';
-import  HomeComponent from './pages/SinglePostComponent';
+import  AboutComponent from './pages/AboutComponent';
+import  PostsComponent from './pages/PostsComponent';
+import  ContactComponent from './pages/ContactComponent';
+import  SinglePostComponent from './pages/SinglePostComponent';
 
 const router = new VueRouter({
     mode:"history",
