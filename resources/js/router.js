@@ -4,15 +4,16 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-import  HomeComponent from './pages/HomeComponent';
-import  AboutComponent from './pages/AboutComponent';
-import  PostsComponent from './pages/PostsComponent';
-import  ContactComponent from './pages/ContactComponent';
-import  SinglePostComponent from './pages/SinglePostComponent';
+import HomeComponent from './pages/HomeComponent';
+import AboutComponent from './pages/AboutComponent';
+import PostsComponent from './pages/PostsComponent';
+import ContactComponent from './pages/ContactComponent';
+import SinglePostComponent from './pages/SinglePostComponent';
+import PostNotFoundComponent from './pages/PostNotFoundComponent';
 
 const router = new VueRouter({
-    mode:"history",
-     routes:[
+    mode: "history",
+    routes: [
         {
             path: '/',
             name: 'home',
@@ -38,8 +39,13 @@ const router = new VueRouter({
             name: 'single-post',
             component: SinglePostComponent
         },
-        
-     ]
+        {
+            path: '*',
+            name: 'page 404',
+            component: PostNotFoundComponent
+        },
+
+    ]
 });
 
 

@@ -1,16 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Category;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Comment;
 
-class CategoryController extends Controller
+
+class CommentController extends Controller
 {
-
-    protected $validationRule = [
-        "name" => "required|string|maX:200",
-    ];
     /**
      * Display a listing of the resource.
      *
@@ -18,11 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(10);
-        return view(
-            'admin.categories.index',
-            compact('categories')
-        );
+        //
     }
 
     /**
@@ -32,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        //
     }
 
     /**
@@ -43,7 +37,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $newComment = new Comment();
+        $newComment->username = $data['username'];
+        $newComment->post_id = $data['post_id'];
+        $newComment->comment_content = $data['comment_content'];
+
+
+        $newComment->save();
+        return response()->json($newComment);
     }
 
     /**

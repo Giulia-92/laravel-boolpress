@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
 use Illuminate\Http\Request;
+use App\Comment;
 
-class CategoryController extends Controller
+class commentController extends Controller
 {
-
-    protected $validationRule = [
-        "name" => "required|string|maX:200",
-    ];
     /**
      * Display a listing of the resource.
      *
@@ -18,11 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(10);
-        return view(
-            'admin.categories.index',
-            compact('categories')
-        );
+        //
     }
 
     /**
@@ -32,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        //
     }
 
     /**
@@ -43,7 +35,6 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
