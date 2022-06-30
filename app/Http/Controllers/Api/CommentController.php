@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Comment;
+use App\Mail\CommentMail;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 
 class CommentController extends Controller
@@ -46,6 +49,7 @@ class CommentController extends Controller
 
         $newComment->save();
         return response()->json($newComment);
+        Mail::to('cionco.giulia@gmail.com')->send(new CommentMail($newComment->post));
     }
 
     /**

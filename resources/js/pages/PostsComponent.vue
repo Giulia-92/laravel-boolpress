@@ -1,33 +1,30 @@
 <template>
     <section>
-<h1>Posts</h1>
-<ul v-if="posts.lenght > 0">
-    <li v-for="(post,index) in posts" :key="post.id">
-        {{index}} - {{post.title}}
-        <router-link :to="{name: 'single-post', params:{slug: post.slug} }">Vedi Post</router-link>
-        
-    </li>
-</ul>
+        <ul v-if="posts.lenght > 0">
+            <li v-for="(post, index) in posts" :key="post.id">
+                {{ index }} - {{ post.title }}
+                <router-link
+                    :to="{ name: 'single-post', params: { slug: post.slug } }"
+                    >Vedi Post</router-link
+                >
+            </li>
+        </ul>
     </section>
 </template>
 
-<script >
-
-
+<script>
 export default {
-    name:'PostsComponent',
-    data(){
+    name: "PostsComponent",
+    data() {
         return {
-            posts: []
-        }
+            posts: [],
+        };
     },
-    created(){
-        axios.get('/api/posts').then((response)=>{
+    created() {
+        axios.get("/api/posts").then((response) => {
             this.posts = response.data;
-        })
-    }
-}
+        });
+    },
+};
 </script>
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
